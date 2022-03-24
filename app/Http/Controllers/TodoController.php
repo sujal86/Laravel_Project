@@ -37,5 +37,11 @@ class TodoController extends Controller
         $todo->update(['title' => $request->title ]);
         return redirect(route('todo.index'))->with('message', 'Task Updated');
     }
+
+    public function delete(Todo $todo)
+    {
+        $todo->delete();
+        return redirect()->back()->with('message', 'Task Deleted');
+    }
 }
 ?>
